@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1 class="welcome_header">To Do List</h1>
+<a href="/task/add" class="add_link">Add task</a>
+{% for task in tasks %}
+    <h2>{{ task.description }} - {{ task.status }}</h2>
+    <p>
+        <a href="#" class="detail-link">More</a>
+    </p>
+{% endfor %}
+</body>
+</html>
