@@ -6,6 +6,8 @@ from to_do_list.models import Task
 
 def index_view(request: WSGIRequest):
     tasks = Task.objects.all()
+    for task in tasks:
+        print(task)
     context = {
         'tasks': tasks
     }

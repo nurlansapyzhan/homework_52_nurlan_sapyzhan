@@ -14,3 +14,13 @@ def add_task(request: WSGIRequest):
     }
     Task.objects.create(**task_data)
     return redirect('/')
+
+
+def delete_task(request: WSGIRequest):
+    if request.method == "GET":
+        return render(request, 'index.html')
+    task_pk = request.POST.get('pk')
+    print(task_pk)
+    task = Task.objects.get(pk=task_pk)
+    task.delete()
+    return redirect('/')

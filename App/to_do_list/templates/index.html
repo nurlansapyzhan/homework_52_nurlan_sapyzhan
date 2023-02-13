@@ -8,7 +8,14 @@
 <h1 class="welcome_header">To Do List</h1>
 <a href="/task/add" class="add_link">Add task</a>
 {% for task in tasks %}
-    <h2>{{ task.description }} - {{ task.status }} {{ task.finish_date }}</h2>
+    <h2>{{ task.description }} | {{ task.status }} | {{ task.finish_date }}</h2>
+    <div class="form">
+        <form action="/task/delete/" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{ task.pk }}" name="pk">
+            <button type="submit">Delete task</button>
+        </form>
+    </div>
 {% endfor %}
 </body>
 </html>
