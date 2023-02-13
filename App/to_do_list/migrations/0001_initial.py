@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('description', models.CharField(max_length=2000, verbose_name='Описание')),
                 ('status', models.CharField(default='new', max_length=200, verbose_name='Статус')),
-                ('finish_date', models.DateTimeField(auto_now=True, verbose_name='Дата выполнения')),
+                ('finish_date', models.DateField(auto_now=True, verbose_name='Дата выполнения')),
             ],
         ),
     ]
