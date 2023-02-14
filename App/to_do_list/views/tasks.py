@@ -24,3 +24,24 @@ def delete_task(request: WSGIRequest):
     task = Task.objects.get(pk=task_pk)
     task.delete()
     return redirect('/')
+
+
+def edit_task(request: WSGIRequest):
+    if request.method == 'GET':
+        return render(request, 'task.html')
+    task_data = {
+        'description': request.POST.get('description'),
+        'status': request.POST.get('status'),
+        'finish_date': request.POST.get('finish_date')
+    }
+    task = Task(**task_data)
+    task.save()
+    return redirect('/')
+
+
+def detail_view(request:WSGIRequest):
+    task_pk = request.GET.get('pk')
+    task = Task.objects.get(pk=task_pk)
+    context = {'task': task}
+    task.delete()
+    return render(request, 'task.html', context=context)
