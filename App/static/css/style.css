@@ -79,3 +79,7 @@ label {
 .form select {
   width: 150px;
 }
+
+.more_link{
+  color: #4CAF50;
+}
